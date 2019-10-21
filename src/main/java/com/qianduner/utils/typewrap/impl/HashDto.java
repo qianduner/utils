@@ -1,8 +1,8 @@
 package com.qianduner.utils.typewrap.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.qianduner.utils.constant.UConstant;
 import com.qianduner.utils.gather.group.U;
-import com.qianduner.utils.gather.group.YmCons;
 import com.qianduner.utils.typewrap.Dto;
 import com.qianduner.utils.typewrap.utils.TypeConvertUtil;
 import org.apache.commons.lang3.ArrayUtils;
@@ -22,9 +22,6 @@ import java.util.List;
  * 对原生Java Map类型的二次包装，提供<b><i>更加方便的存取API、更强的容错和类型转换机制。</i></b>
  * 在平台二次开发过程中具有很强的实用价值。 开发人员需熟练掌握其提供的相关API。
  * </p>
- *
- * @author Laver
- * @date 2008-07-06
  */
 public class HashDto extends HashMap<String, Object> implements Dto {
 
@@ -40,9 +37,8 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以Integer类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return Integer 键值
-     * @throws Exception
      */
 
     public Integer getInteger(String pKey) {
@@ -56,7 +52,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以BigInteger类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return BigInteger 键值
      */
     public BigInteger getBigInteger(String pKey) {
@@ -73,7 +69,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以Long类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return Long 键值
      */
 
@@ -88,7 +84,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以String类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return String 键值
      */
 
@@ -103,7 +99,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以BigDecimal类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return BigDecimal 键值
      */
 
@@ -118,7 +114,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以BigDecimal类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return BigDecimal 键值
      */
 
@@ -133,7 +129,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以Date类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return Date 键值(yyyy-MM-dd)
      */
 
@@ -148,7 +144,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以Timestamp类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return Timestamp 键值(yyyy-MM-dd HH:mm:ss)
      */
 
@@ -163,7 +159,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以Boolean类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return Boolean 键值
      */
 
@@ -178,11 +174,9 @@ public class HashDto extends HashMap<String, Object> implements Dto {
     /**
      * 以List类型返回属性
      *
-     * @param pKey
+     * @param pKey 键名
      * @return List 键值
      */
-    @SuppressWarnings("unchecked")
-
     public List<? extends Object> getList(String pKey) {
         return (List<? extends Object>) get(pKey);
     }
@@ -193,7 +187,7 @@ public class HashDto extends HashMap<String, Object> implements Dto {
      */
 
     public void println() {
-        System.out.println(YmCons.CONSOLE_FLAG1 + this.toString());
+        System.out.println(UConstant.CONSOLE_FLAG1 + this.toString());
     }
 
     @Override

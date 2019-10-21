@@ -97,8 +97,8 @@ public class Status {
 
     /**
      * 错误信息
-     * @param code
-     * @return
+     * @param code 微信编号
+     * @return 返回文字错误信息
      */
     public static String is(int code){
         if(status.containsKey(code)){

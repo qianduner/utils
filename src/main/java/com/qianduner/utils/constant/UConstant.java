@@ -47,8 +47,6 @@ public class UConstant {
     /** GBK */
     public static final String GBK = "GBK";
 
-    public final static String ADMIN_MOBILE = "15280005944";
-
     public final static Integer INTEGER_TEN = 10;
 
     public final static Integer INTEGER_ONE = 1;
@@ -66,6 +64,86 @@ public class UConstant {
     public static final String FORMAT_DATE_DAY = "yyyy-MM-dd";
 
     public static final String FORMAT_DATE_MONTH = "yyyy-MM";
+
+    /**
+     * 存储过程业务成功状态码：成功
+     */
+    public static final String PROC_SUCCESS = "1";
+
+    /**
+     * 业务状态码：成功
+     */
+    public static final String SUCCESS = "1";
+
+    /**
+     * 业务状态码：失败
+     */
+    public static final String ERROR = "-1";
+
+    /**
+     * 字符布尔值：真
+     */
+    public static final String STR_TRUE = "1";
+
+    /**
+     * 字符布尔值：假
+     */
+    public static final String STR_FALSE = "0";
+
+
+    /**
+     * 请求相应成功标志
+     */
+    public static final String REQUEST_SUCCESS = "success";
+
+    /**
+     * 控制台醒目标记1
+     */
+    public static final String CONSOLE_FLAG1 = "● ";
+
+    /**
+     * 控制台醒目标记2
+     */
+    public static final String CONSOLE_FLAG2 = "●● ";
+
+    /**
+     * 控制台醒目标记3
+     */
+    public static final String CONSOLE_FLAG3 = "●●● ";
+
+
+    /**
+     * 是
+     */
+    public static final String YES = "1";
+
+    /**
+     * 否
+     */
+    public static final String NO = "0";
+
+    /**
+     * 排序器在参数对象中的Key
+     */
+    public static final String ORDER_KEY = "order";
+
+
+
+
+    /**
+     * 是否标识
+     */
+    public static final class IS {
+        public static final String YES = "1";
+        public static final String NO = "0";
+    }
+
+
+    /**
+     * 通用SQL数据访问对象Bean名称
+     */
+    public static final String SQLDAO = "sqlDao";
+
 
     public static final Long ONE_DATA_S = (1000 * 60 * 60) * 24L;
 

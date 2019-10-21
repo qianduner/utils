@@ -99,11 +99,6 @@ public class Base64OutputStream extends OutputStream {
 		outputStream.close();
 	}
 
-	/**
-	 * <p>
-	 * It commits 4 bytes to the underlying stream.
-	 * </p>
-	 */
 	protected void commit() throws IOException {
 		if (bytecounter > 0) {
 			if (linelength > 0 && linecounter == linelength) {

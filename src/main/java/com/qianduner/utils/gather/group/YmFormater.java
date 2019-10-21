@@ -4,18 +4,14 @@ import java.util.List;
 
 /**
  * <b>格式转换器</b>
- * 
- * @author xiongchun
- * @date 2009-10-06
  */
 public class YmFormater {
 
 	/**
 	 * 将字符串数组转换为由,分割的字符串
 	 * 
-	 * @param arrStrings
-	 *            输入数组
-	 * @return
+	 * @param arrStrings 输入数组
+	 * @return 数字字符串
 	 */
 	public static String toString(String[] arrStrings) {
 		String outString = toSeparatString(arrStrings, ",");
@@ -29,7 +25,7 @@ public class YmFormater {
 	 *            输入数组
 	 * @param separator
 	 *            指定分隔符
-	 * @return
+	 * @return 将字符串数组转换为由指定分隔符分割的字符串
 	 */
 	public static String toSeparatString(String[] arrStrings, String separator) {
 		String outString = "";
@@ -47,7 +43,7 @@ public class YmFormater {
 	 * 
 	 * @param list
 	 *            输入List
-	 * @return
+	 * @return List转换字符串
 	 */
 	public static String toString(List<?> list) {
 		String outString = toSeparatString(list, ",");
@@ -61,7 +57,7 @@ public class YmFormater {
 	 *            输入List
 	 * @param separator
 	 *            分隔符
-	 * @return
+	 * @return List 字符串
 	 */
 	public static String toSeparatString(List<?> list, String separator) {
 		StringBuilder sb = new StringBuilder();

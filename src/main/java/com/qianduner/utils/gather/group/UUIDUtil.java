@@ -8,7 +8,6 @@ import java.util.UUID;
 
 /**
  * uuid工具类
- * Created by wangliu on 2017/6/15.
  */
 public class UUIDUtil {
 
@@ -22,8 +21,7 @@ public class UUIDUtil {
 
     /**
      * 生成短8位uuid 可能重复
-     *
-     * @return
+     * @return UUID短8位
      */
     public static String generateShort8Uuid() {
         StringBuffer shortBuffer = new StringBuffer();
@@ -39,8 +37,7 @@ public class UUIDUtil {
 
     /**
      * 生成短32位uuid
-     *
-     * @return
+     * @return String 生成短32位uuid
      */
     public static String generate32Uuid() {
         return UUID.randomUUID().toString().replace("-", "");
@@ -48,8 +45,7 @@ public class UUIDUtil {
 
     /**
      * 获取订单号或流水号
-     *
-     * @return
+     * @return 流水号
      */
     public static String getTradeNo() {
         DateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");

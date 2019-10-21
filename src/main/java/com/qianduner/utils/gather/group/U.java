@@ -1,5 +1,6 @@
 package com.qianduner.utils.gather.group;
 
+import com.qianduner.utils.constant.UConstant;
 import com.qianduner.utils.core.exception.UException;
 import com.qianduner.utils.typewrap.Dto;
 import com.qianduner.utils.typewrap.utils.TypeConvertUtil;
@@ -29,10 +30,6 @@ import java.util.regex.Pattern;
 
 /**
  * <b>辅助工具类</b>
- *
- * @author Laver
- * @date 2016-1-22
- * @since 1.0
  */
 public class U {
 
@@ -72,6 +69,12 @@ public class U {
         }
     }
 
+    /**
+     * 获取时间星期几
+     *
+     * @param dt 日期
+     * @return String 星期
+     */
     public static String getWeekOfDate(Date dt) {
         String[] weekDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
         Calendar cal = Calendar.getInstance();
@@ -83,10 +86,11 @@ public class U {
     }
 
     /**
-     * 　　* 将元数据前补零，补后的总长度为指定的长度，以字符串的形式返回
-     * 　　* @param sourceDate
-     * 　　* @param formatLength
-     * 　　* @return 重组后的数据
+     * 将元数据前补零，补后的总长度为指定的长度，以字符串的形式返回
+     *
+     * @param sourceDate   原数据
+     * @param formatLength 补充长度
+     * @return 重组后的数据
      */
 
     public static String replenishZore(int sourceDate, int formatLength) {
@@ -119,6 +123,12 @@ public class U {
         return false;
     }
 
+    /**
+     * 隐藏手机号中间部分
+     *
+     * @param mobile 手机号
+     * @return String 隐藏手机号
+     */
     public static String hideMobile(String mobile) {
         if (isEmpty(mobile))
             return mobile;
@@ -147,8 +157,8 @@ public class U {
     /**
      * 判断日期是否是当天
      *
-     * @param date
-     * @return
+     * @param date 日期时间
+     * @return Boolean 是否当天
      */
     public static boolean isToday(Date date) {
         Calendar c1 = Calendar.getInstance();
@@ -171,8 +181,8 @@ public class U {
     /**
      * 数字千位分隔符
      *
-     * @param value
-     * @return
+     * @param value BigDecimal数值
+     * @return String 逗号分隔字符串
      */
     public static String kilobit(BigDecimal value) {
         java.text.DecimalFormat df = new java.text.DecimalFormat("#,###");
@@ -182,8 +192,8 @@ public class U {
     /**
      * 数字千位分隔符
      *
-     * @param value
-     * @return
+     * @param value BigDecimal数值
+     * @return String 逗号分隔字符串
      */
     public static String kilobitDecimals(BigDecimal value) {
         java.text.DecimalFormat df = new java.text.DecimalFormat("#,###.000000");
@@ -211,8 +221,8 @@ public class U {
     /**
      * 数据转成负数
      *
-     * @param decimal
-     * @return
+     * @param decimal 数字
+     * @return BigDecimal 正负转换
      */
     public static BigDecimal fanZhuan(BigDecimal decimal) {
         decimal = decimal.multiply(new BigDecimal(-1));
@@ -221,11 +231,10 @@ public class U {
 
 
     /**
-     * 判断对象是否为NotEmpty(!null或元素>0)<br>
-     * 实用于对如下对象做判断:String Collection及其子类 Map及其子类
+     * 判断是否不为空
      *
-     * @param pObj 待检查对象
-     * @return boolean 返回的布尔值
+     * @param pObj 对象
+     * @return Boolean 是否不为空
      */
     public static boolean isNotEmpty(Object pObj) {
         if (pObj == null)
@@ -572,9 +581,8 @@ public class U {
 
     /**
      * 返回指定格式的当前日期时间字符串
-     *
-     * @param format
-     * @return
+     * @param format 日期格式化
+     * @return String 格式化后日期
      */
     public static String getDateTimeStr(String format) {
         String returnStr = null;
@@ -586,9 +594,9 @@ public class U {
 
     /**
      * 返回指定格式的当前日期时间字符串
-     *
-     * @param format
-     * @return
+     * @param format 格式化
+     * @param amount 增加数量
+     * @return String 日期时间
      */
     public static String getDateAddTimeStr(String format, int amount) {
         String returnStr = null;
@@ -643,6 +651,7 @@ public class U {
 
     /**
      * 返回当前日期Date对象
+     * @return Date 当前日期
      */
     public static Date getDate() {
         Object obj = TypeConvertUtil.convert(getDateStr(), "Date", DATE_PATTERN);
@@ -654,6 +663,7 @@ public class U {
 
     /**
      * 返回当前日期Timestamp对象
+     * @return Timestamp 获取当天时间戳
      */
     public static Timestamp getDateTime() {
         Object obj = TypeConvertUtil.convert(getDateTimeStr(), "Timestamp", DATE_TIME_PATTERN);
@@ -666,9 +676,9 @@ public class U {
     /**
      * 返回指定格式的字符型日期
      *
-     * @param date
-     * @param formatString
-     * @return
+     * @param date 基础日期
+     * @param formatString 格式化
+     * @return String 日期转字符串
      */
     public static String date2String(Date date, String formatString) {
         if (isEmpty(date)) {
@@ -682,10 +692,10 @@ public class U {
     /**
      * 日期加减
      *
-     * @param dt
-     * @param calendarType
-     * @param amount
-     * @return
+     * @param dt 基础日期时间
+     * @param calendarType 增加日期类型
+     * @param amount 数量
+     * @return 日期时间
      */
     public static Date dateAdd(Date dt, int calendarType, int amount) {
         Calendar cl = Calendar.getInstance();
@@ -717,13 +727,13 @@ public class U {
     /**
      * 将字符串型日期转换为日期型
      *
-     * @param strDate
-     * @return
+     * @param strDate 日期
+     * @return Date 字符串转日期
      */
     public static Date stringToDate(String strDate) {
-        Date tmpDate = (new SimpleDateFormat(YmCons.DATATIME)).parse(strDate, new ParsePosition(0));
+        Date tmpDate = (new SimpleDateFormat(UConstant.FORMAT_DATE_SECOND)).parse(strDate, new ParsePosition(0));
         if (tmpDate == null) {
-            tmpDate = (new SimpleDateFormat(YmCons.DATA)).parse(strDate, new ParsePosition(0));
+            tmpDate = (new SimpleDateFormat(UConstant.FORMAT_DATE_DAY)).parse(strDate, new ParsePosition(0));
         }
         return tmpDate;
     }
@@ -732,6 +742,8 @@ public class U {
      * 对文件流输出下载的中文文件名进行编码 屏蔽各种浏览器版本的差异性<br>
      *
      * @param agent request.getHeader("USER-AGENT");
+     * @param pFileName 解析下载文件名称
+     * @return String 下载文件名字
      */
     public static String encodeChineseDownloadFileName(String agent, String pFileName) {
         try {
@@ -748,9 +760,8 @@ public class U {
 
     /**
      * 根据日期获取星期
-     *
-     * @param strdate
-     * @return
+     * @param strdate 日期
+     * @return String 星期
      */
     public static String getWeekDayByDate(String strdate) {
         final String dayNames[] = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
@@ -772,8 +783,8 @@ public class U {
     /**
      * 区分今天昨天前天
      *
-     * @param createTime
-     * @return
+     * @param createTime 当前时间
+     * @return String 多久以前
      */
     public static String parseNewDate(String createTime) {
         try {
@@ -803,8 +814,8 @@ public class U {
     /**
      * JS输出含有\n的特殊处理
      *
-     * @param pStr
-     * @return
+     * @param pStr JS正文
+     * @return 对JS文件替换空格回车
      */
     public static String replace4JsOutput(String pStr) {
         pStr = pStr.replace("\r\n", "<br/>&nbsp;&nbsp;");
@@ -816,9 +827,8 @@ public class U {
     /**
      * 获取class文件所在绝对路径
      *
-     * @param cls
-     * @return
-     * @throws IOException
+     * @param cls 类名
+     * @return 文件所在绝对路径
      */
     public static String getPathFromClass(Class cls) {
         String path = null;
@@ -858,7 +868,6 @@ public class U {
      * @param relatedPath 相对路径
      * @param cls         用来定位的类
      * @return 相对路径所对应的绝对路径
-     * @throws IOException 因为本方法将查询文件系统，所以可能抛出IO异常
      */
     public static String getFullPathRelateClass(String relatedPath, Class cls) {
         String path = null;
@@ -880,8 +889,8 @@ public class U {
     /**
      * 获取类的class文件位置的URL
      *
-     * @param cls
-     * @return
+     * @param cls class文件
+     * @return URL 文件存储喂猪
      */
     private static URL getClassLocationURL(final Class cls) {
         if (cls == null)
@@ -916,8 +925,8 @@ public class U {
     /**
      * 字符串编码转换工具类
      *
-     * @param pString
-     * @return
+     * @param pString 字符串正文
+     * @return String 正文字符串
      */
     public static String getGBK(String pString) {
         if (isEmpty(pString)) {
@@ -935,7 +944,7 @@ public class U {
      * 检查当前ClassLoader种,是否存在指定class
      *
      * @param pClass 类路径
-     * @return
+     * @return boolean Class是否存在
      */
     public static boolean isExistClass(String pClass) {
         try {
@@ -951,7 +960,7 @@ public class U {
      * 判断是否是IE浏览器
      *
      * @param userAgent request.getHeader("USER-AGENT")
-     * @return
+     * @return boolean 是否是IE浏览器
      */
     public static boolean isIE(String userAgent) {
         userAgent = userAgent.toLowerCase();
@@ -962,7 +971,7 @@ public class U {
      * 获取IE版本号
      *
      * @param userAgent request.getHeader("USER-AGENT")
-     * @return
+     * @return String 获取IE版本号
      */
     public static String getIeVersion(String userAgent) {
         String ieVersion = "";
@@ -986,7 +995,7 @@ public class U {
      * 判断是否是Chrome浏览器
      *
      * @param userAgent request.getHeader("USER-AGENT")
-     * @return
+     * @return boolean 是否 谷歌浏览器
      */
     public static boolean isChrome(String userAgent) {
         userAgent = userAgent.toLowerCase();
@@ -997,7 +1006,7 @@ public class U {
      * 判断是否是Firefox浏览器
      *
      * @param userAgent request.getHeader("USER-AGENT")
-     * @return
+     * @return boolean 是否火狐浏览器
      */
     public static boolean isFirefox(String userAgent) {
         userAgent = userAgent.toLowerCase();
@@ -1007,8 +1016,8 @@ public class U {
     /**
      * 替换空字符串，原生trim只能替换字符串前后
      *
-     * @param aString
-     * @return
+     * @param aString 正文
+     * @return String  替换空字符串
      */
     public static String trimAll(String aString) {
         if (U.isEmpty(aString)) {
@@ -1019,6 +1028,7 @@ public class U {
 
     /**
      * 打印调试对象
+     * @param object 打印对象
      */
     public static void debug(Object object) {
         System.out.println(object);
@@ -1026,8 +1036,7 @@ public class U {
 
     /**
      * 产生[0-9]之间的随机数
-     *
-     * @return
+     * @return int 0-9随机数
      */
     public static int random() {
         return (int) (Math.random() * 10);
@@ -1036,7 +1045,9 @@ public class U {
     /**
      * 产生指定范围[min-max]之间的随机数
      *
-     * @return
+     * @param min 最小值
+     * @param max 最大值
+     * @return Long 范围随机值
      */
     public static long randomBetween(long min, long max) {
         return Math.round(Math.random() * (max - min) + min);
@@ -1045,7 +1056,9 @@ public class U {
     /**
      * 产生指定范围[min-max]之间的随机数
      *
-     * @return
+     * @param min 最小值
+     * @param max 最大值
+     * @return String 范围随机值
      */
     public static String randomBetweenStr(long min, long max) {
         return "" + Math.round(Math.random() * (max - min) + min);
@@ -1054,7 +1067,7 @@ public class U {
     /**
      * 产生随机简体汉字
      *
-     * @return
+     * @return String 随机汉字
      */
     public static String randomSimplified() {
         String outCharacter = null;
@@ -1077,7 +1090,7 @@ public class U {
     /**
      * 获取主机名
      *
-     * @return
+     * @return String 获取主机名称
      */
     public static String getHostName() {
         String hostName = null;
@@ -1094,7 +1107,7 @@ public class U {
     /**
      * 获取主机IP
      *
-     * @return
+     * @return String 获取本机IP
      */
     public static String getHostAddress() {
         String hostAddress = null;
@@ -1125,8 +1138,8 @@ public class U {
     /**
      * 验证邮箱
      *
-     * @param email
-     * @return
+     * @param email 电子邮箱
+     * @return boolean 判断邮箱
      */
     public static boolean checkEmail(String email) {
         String regex = "^\\w+[-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$ ";
@@ -1140,8 +1153,8 @@ public class U {
      * 联通号码段:130、131、132、136、185、186、145
      * 电信号码段:133、153、180、189
      *
-     * @param cellphone
-     * @return
+     * @param cellphone 手机号
+     * @return boolean 是否是手机号
      */
     public static boolean checkCellphone(String cellphone) {
         String regex = "^((13[0-9])|(14[0-9])|(15([0-9]))|(17[0-9])|(18[0-9])|(19[0-9]))\\d{8}$";
@@ -1151,8 +1164,8 @@ public class U {
     /**
      * 验证固话号码
      *
-     * @param telephone
-     * @return
+     * @param telephone 固定电话
+     * @return boolean 是否固定电话
      */
     public static boolean checkTelephone(String telephone) {
         String regex = "^(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)$";
@@ -1162,8 +1175,8 @@ public class U {
     /**
      * 验证传真号码
      *
-     * @param fax
-     * @return
+     * @param fax 传真号码
+     * @return boolean isFAX
      */
     public static boolean checkFax(String fax) {
         String regex = "^(0\\d{2}-\\d{8}(-\\d{1,4})?)|(0\\d{3}-\\d{7,8}(-\\d{1,4})?)$";
@@ -1174,8 +1187,8 @@ public class U {
     /**
      * 将url参数转换成map
      *
-     * @param param aa=11&bb=22&cc=33
-     * @return
+     * @param param URL键值对
+     * @return Map Map对象
      */
     public static Map<String, Object> getUrlParams(String param) {
         Map<String, Object> map = new HashMap<>();
@@ -1195,8 +1208,8 @@ public class U {
     /**
      * 将map转换成url
      *
-     * @param map
-     * @return
+     * @param map 参数
+     * @return String URL键值对
      */
     public static String getUrlParamsByMap(Map<String, Object> map) {
         if (map == null) {
@@ -1280,8 +1293,8 @@ public class U {
     /**
      * 过滤emoji 或者 其他非文字类型的字符
      *
-     * @param source
-     * @return
+     * @param source 正文
+     * @return String 不包含emoji文字
      */
     public static String filterEmoji(String source) {
         if (StringUtils.isBlank(source)) {
@@ -1344,8 +1357,8 @@ public class U {
     /**
      * <p>转为unicode 编码<p>
      *
-     * @param str
-     * @return unicodeString
+     * @param str UTF8中文
+     * @return UTF8转UNICODE值
      */
     public static String utf8ToUnicode(String str) {
         String prefix = "\\u";
@@ -1364,8 +1377,8 @@ public class U {
     /**
      * 把unicode编码转换为中文
      *
-     * @param str
-     * @return
+     * @param str unicode正文
+     * @return String UTF8中文
      */
     public static String unicodeToUtf8(String str) {
         String sg = "\\u";
@@ -1395,6 +1408,8 @@ public class U {
 
     /**
      * 获取服务器启动时间
+     *
+     * @return String 服务器启动时间
      */
     public static Date getServerStartDate() {
         long time = ManagementFactory.getRuntimeMXBean().getStartTime();
@@ -1403,6 +1418,10 @@ public class U {
 
     /**
      * 计算两个时间差
+     *
+     * @param endDate 截止日期
+     * @param nowDate 起始日期
+     * @return 返回时间差
      */
     public static String getDatePoor(Date endDate, Date nowDate) {
         long nd = 1000 * 24 * 60 * 60;
@@ -1421,26 +1440,4 @@ public class U {
         // long sec = diff % nd % nh % nm / ns;
         return day + "天" + hour + "小时" + min + "分钟";
     }
-
-    /**
-     * 测试
-     *
-     * @param args
-     */
-    //public static void main(String args[]) {
-    //    //System.out.println(YmCodec.md5("回收账户"));
-    //    //System.out.println(getByte16Wallet("回收账户"));
-    //    //String string = "\\xF0\\x9F\\x94\\x92�都嗨��、齐静��给你��";
-    //    //System.out.println(containsEmoji(string));
-    //    //System.out.println(filterEmoji(string));
-    //    System.out.println(U.getDate().getTime());
-    //    //try {
-    //    //} catch (ParseException e) {
-    //    //    e.printStackTrace();
-    //    //}
-    //    //System.out.println(getUrlParams("p=oWvPX3cA==O78C/jqHDyAVkj&s=386144364065314136237e633935632a6f31353137313235373437393030&v=64b9a53d5d3f25c59f5686e0db27d207&m=U2FsdGVkX18+tgZD0NGA61ZTBihKl0/Mpys8O0wku+0=\n"));
-    //    //System.out.println(YmCodec.decryptDES("U2FsdGVkX19W3a24TfL9Z3uhF6Rq+9rz76wIyonU5Y4=", "9y4pHKVFDsON7AQ=="));
-    //    //System.out.println(hideMobile("13588444801230"));
-    //    //System.out.println(isToday(U.dateAdd(U.getDateTime(),Calendar.DATE,-1)));
-    //}
 }

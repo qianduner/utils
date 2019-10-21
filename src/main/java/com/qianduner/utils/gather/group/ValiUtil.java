@@ -2,12 +2,6 @@ package com.qianduner.utils.gather.group;
 
 
 import com.qianduner.utils.core.exception.UException;
-
-/**
- * @author Laver
- * @version 2017/8/29.
- * @remark
- */
 public class ValiUtil {
 
     public static Object valiNull(Object object) {

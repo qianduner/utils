@@ -10,21 +10,17 @@ import java.util.Map;
 
 /**
  * URL工具类
- *
- * @author Laver
- * @date 2009-10-06
  */
 public class UUrl {
 
     /**
      * 字符串url编码
-     *
-     * @param
-     * @return
+     * @param url URL地址
+     * @return String URL地址
      */
-    private static String urlEncode(String s) {
+    private static String urlEncode(String url) {
         try {
-            return URLEncoder.encode(s, "UTF-8");
+            return URLEncoder.encode(url, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new UnsupportedOperationException(e);
         }
@@ -32,9 +28,8 @@ public class UUrl {
 
     /**
      * Map类型参数URL编码
-     *
-     * @param map
-     * @return
+     * @param map URL参数
+     * @return URL参数拼接
      */
     public static String urlEncode(Map<?, ?> map) {
         StringBuilder sb = new StringBuilder();
@@ -50,6 +45,11 @@ public class UUrl {
         return sb.toString();
     }
 
+    /**
+     * 下载URL文件
+     * @param urlString URL地址
+     * @return File 文件
+     */
     public static File downUrlFile(String urlString) {
         URL url = null;
         File file = null;
@@ -91,6 +91,12 @@ public class UUrl {
         return file;
     }
 
+    /**
+     * 请求URL
+     * @param urlStr 地址
+     * @return String 返回结果
+     * @throws Exception 连接错误
+     */
     public static String requestURL(String urlStr) throws Exception {
         URL url = new URL(urlStr);
         HttpURLConnection urlcon = (HttpURLConnection) url.openConnection();

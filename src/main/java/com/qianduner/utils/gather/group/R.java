@@ -62,13 +62,6 @@ public class R extends HashMap<String, Object> {
         return r;
     }
 
-    public static R ok(List<? extends Object> pList, Integer total) {
-        Dto tempDto = new HashDto();
-        tempDto.put(YmCons.READER_ROOT_PROPERTY, pList);
-        tempDto.put(YmCons.READER_TOTAL_PROPERTY, total);
-        return R.ok(tempDto);
-    }
-
 
     public static R ok(Map<String, Object> map) {
         R r = new R();

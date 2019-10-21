@@ -18,8 +18,8 @@ public class YmSerializeUtil {
 	/**
 	 * 序列化
 	 * 
-	 * @param obj
-	 * @return
+	 * @param obj 序列号对象
+	 * @return 对象字节
 	 */
 	public static byte[] serialize(Object obj){
 		try{
@@ -38,8 +38,8 @@ public class YmSerializeUtil {
 	/**
 	 * 反序列化
 	 * 
-	 * @param bytes
-	 * @return
+	 * @param bytes 对象字节
+	 * @return 对象
 	 */
 	public static Object unSerialize(byte[] bytes){
 		if (bytes == null) {

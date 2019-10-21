@@ -23,12 +23,11 @@ public class TypeConvertUtil {
 
 	/**
 	 * 类型转换实现
-	 * 
-	 * @param obj
-	 * @param type
-	 * @param format
-	 * @return
-	 * @throws UException
+	 * @param obj 需要转换对象
+	 * @param type 对象类型
+	 * @param format 格式化
+	 * @return 转型对象
+	 * @throws UException 错误异常
 	 */
 	public static Object convert(Object obj, String type, String format) throws UException {
 		Locale locale = new Locale("zh", "CN", "");

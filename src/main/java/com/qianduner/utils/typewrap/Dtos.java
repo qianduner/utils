@@ -1,6 +1,5 @@
 package com.qianduner.utils.typewrap;
 
-import com.qianduner.utils.gather.group.YmCons;
 import com.qianduner.utils.typewrap.impl.HashDto;
 
 import java.util.Map;
@@ -13,7 +12,7 @@ public class Dtos {
 
 	/**
 	 * 创建一个常规的Dto对象
-	 * 
+	 * @return Dto对象
 	 */
 	public static Dto newDto() {
 		return new HashDto();
@@ -21,7 +20,8 @@ public class Dtos {
 	
 	/**
 	 * 在Map的基础上克隆一个常规Dto对象
-	 * 
+	 * @param map map对象
+	 * @return Dto对象
 	 */
 	public static Dto newDto(Map<String, ?> map) {
 		Dto newDto = new HashDto();
@@ -33,9 +33,9 @@ public class Dtos {
 	/**
 	 * 创建一个常规的Dto对象，并初始化一个键值对。
 	 * 
-	 * @param keyString
-	 * @param valueObject
-	 * @return
+	 * @param keyString 键名
+	 * @param valueObject 键值
+	 * @return Dto对象
 	 */
 	public static Dto newDto(String keyString, Object valueObject) {
 		Dto dto = new HashDto();

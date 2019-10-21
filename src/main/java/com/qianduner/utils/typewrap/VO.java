@@ -1,8 +1,8 @@
 package com.qianduner.utils.typewrap;
 
 import com.alibaba.fastjson.JSON;
+import com.qianduner.utils.constant.UConstant;
 import com.qianduner.utils.gather.group.U;
-import com.qianduner.utils.gather.group.YmCons;
 import com.qianduner.utils.typewrap.impl.HashDto;
 
 import java.io.Serializable;
@@ -41,6 +41,7 @@ public class VO implements Serializable {
 
     /**
      * 将参数对象中的属性复制到源对象中
+     * @param inObj 复制参数
      */
     public void copyProperties(Object inObj) {
         U.copyProperties(inObj, this);
@@ -70,6 +71,6 @@ public class VO implements Serializable {
      * 将此对象以可读形式打印输出
      */
     public void println() {
-        System.out.println(YmCons.CONSOLE_FLAG1 + toJson());
+        System.out.println(UConstant.CONSOLE_FLAG1 + toJson());
     }
 }
