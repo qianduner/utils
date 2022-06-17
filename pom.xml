@@ -17,7 +17,7 @@
     </parent>
     <properties>
         <java.version>8</java.version>
-        <fastjson.version>1.2.59</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.io.version>2.5</commons.io.version>
         <commons-lang3.version>3.4</commons-lang3.version>
